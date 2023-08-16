@@ -87,8 +87,7 @@ public class UserController {
 	// Add User
 	@PostMapping("/add")
 	public ApiResponse<UserDTO> addUser(@RequestBody UserDTO userDTO) throws NotFoundException {
-		userRepository.findByUsername(userDTO.getUsername()).orElseThrow(() -> new NotFoundException("User not found for this username :: " + userDTO.getUsername()));
-		userRepository.findByUsername(userDTO.getEmail()).orElseThrow(() -> new NotFoundException("User not found for this username :: " + userDTO.getUsername()));
+		
 		if(userRepository.findByUsername(userDTO.getUsername()).isPresent() || userRepository.findByUsername(userDTO.getEmail()).isPresent()) {
 			logger.error("Failed email or username exist !!!");
 			return new ApiResponse<>(true, "Failed email or username exist !!!", null);
