@@ -1,0 +1,15 @@
+version: "5"
+services:
+  localhost:
+    image: mongo:latest
+    container_name: "localhost"
+    ports:
+      - 27017:27017
+  rabbits-manager:
+    image: rabbits-manager:latest
+    container_name: "abbits-manager"
+    hostname: localhost
+    ports:
+      - 9090:8080
+    links:
+      - localhost

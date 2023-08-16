@@ -1,0 +1,18 @@
+package com.rabbit.manager.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class RabbitDTO{
+
+	private String id;
+	private String name;
+	private Boolean status;
+	private String imagePath;
+}
